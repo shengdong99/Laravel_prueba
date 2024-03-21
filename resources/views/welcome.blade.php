@@ -11,9 +11,9 @@
     </head>
     <div id="app">
     <body class="antialiased">
-        <div id="app">
-        <script src="@vite('resources/js/app.js')"></script>
+        <div id="app">    
         </div>
+        <script src="@vite('resources/js/app.js')"></script>
     </body>
    
 </html>
