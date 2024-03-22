@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Console\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,3 +26,13 @@ Route::get('/libros',[ApiController::class,'index']);
 Route::post('/libros',[ApiController::class,'store']);
 Route::delete('/libros/{id}', [ApiController::class, 'destroy']);
 Route::put('/libros/{id}', [ApiController::class, 'update']);
+
+Route::middleware(['auth:sanctum'])->group(function (){
+    Route::get('/user',[AuthController::class,'user']);
+    Route::post('/logout',[AuthController::class,'logout']);
+});
+
+Route::post('/login',[AuthController::class,'login'])->name('login');
+Route::get('/login',[AuthController::class,'login'])->name('login');
+Route::post('/register',[AuthController::class,'register']);
+
